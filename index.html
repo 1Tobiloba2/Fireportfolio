@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Awesome Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/variable.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+        }
+        .text-primary { color: var(--primary-color); }
+        .bg-primary { background-color: var(--primary-color); }
+        .bg-card { background-color: var(--card-bg); }
+        .border-accent { border-color: var(--accent-color); }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--background-color); }
+        ::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 10px; }
+        
+        .fade-in { animation: fadeIn 0.8s ease-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Skeleton Animation */
+        .skeleton {
+            background: linear-gradient(90deg, var(--card-bg) 25%, var(--background-color) 50%, var(--card-bg) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite linear;
+            border-radius: 0.5rem;
+        }
+
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'var(--primary-color)',
+                        secondary: 'var(--secondary-color)',
+                        accent: 'var(--accent-color)',
+                        'card-bg': 'var(--card-bg)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="transition-colors duration-500">
+    <header class="fixed top-0 w-full z-50 bg-opacity-80 backdrop-blur-md border-b border-accent/10">
+        <nav class="p-4 md:p-6 flex justify-between items-center max-w-7xl mx-auto">
+            <h1 class="text-xl md:text-2xl font-black tracking-tighter text-primary">FIRE.<span class="text-accent">HUB</span></h1>
+            <div class="flex items-center gap-4 md:gap-8">
+                <div class="hidden sm:flex gap-6 font-medium text-sm md:text-base">
+                    <a href="#bio" class="hover:text-primary transition">Bio</a>
+                    <a href="#tools" class="hover:text-primary transition">Tools</a>
+                    <a href="#portfolio" class="hover:text-primary transition">Works</a>
+                </div>
+                <button onclick="toggleTheme()" class="p-2 bg-primary/10 rounded-xl hover:bg-primary/20 transition-all text-lg md:text-xl" title="Toggle Theme">
+                    🌓
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 md:pt-32">
+        <!-- Bio Section -->
+        <section id="bio" class="py-20 flex flex-col lg:flex-row items-center gap-16">
+            <div id="bio-content" class="flex-1 text-center lg:text-left">
+                <!-- Skeleton for Bio -->
+                <div class="skeleton h-6 w-32 mb-6"></div>
+                <div class="skeleton h-16 w-full mb-4"></div>
+                <div class="skeleton h-16 w-3/4 mb-8"></div>
+                <div class="skeleton h-24 w-full mb-10"></div>
+                <div class="flex gap-6 justify-center lg:justify-start">
+                    <div class="skeleton h-14 w-44 rounded-2xl"></div>
+                    <div class="skeleton h-14 w-44 rounded-2xl"></div>
+                </div>
+            </div>
+            <div id="bio-avatar" class="relative group w-80 h-80 lg:w-96 lg:h-96">
+                <!-- Skeleton for Avatar -->
+                <div class="skeleton w-full h-full rounded-[2.5rem] md:rounded-[3.5rem]"></div>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section id="tools" class="py-20 border-t border-accent/10">
+            <div class="mb-16">
+                <h2 class="text-4xl lg:text-5xl font-black mb-4 tracking-tight">Creative <span class="text-primary">Toolkit</span></h2>
+                <p class="text-lg opacity-60">The professional software and platforms I use to drive results.</p>
+            </div>
+            
+            <div id="tools-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Skeletons for Tools -->
+                <div class="bg-card p-6 rounded-2xl border border-accent/10 flex items-center gap-4">
+                    <div class="skeleton w-12 h-12 rounded-xl"></div>
+                    <div class="space-y-2 flex-1">
+                        <div class="skeleton h-4 w-3/4"></div>
+                        <div class="skeleton h-3 w-1/2"></div>
+                    </div>
+                </div>
+                <div class="bg-card p-6 rounded-2xl border border-accent/10 flex items-center gap-4">
+                    <div class="skeleton w-12 h-12 rounded-xl"></div>
+                    <div class="space-y-2 flex-1">
+                        <div class="skeleton h-4 w-3/4"></div>
+                        <div class="skeleton h-3 w-1/2"></div>
+                    </div>
+                </div>
+                <div class="bg-card p-6 rounded-2xl border border-accent/10 flex items-center gap-4 md:hidden lg:flex">
+                    <div class="skeleton w-12 h-12 rounded-xl"></div>
+                    <div class="space-y-2 flex-1">
+                        <div class="skeleton h-4 w-3/4"></div>
+                        <div class="skeleton h-3 w-1/2"></div>
+                    </div>
+                </div>
+                <div class="bg-card p-6 rounded-2xl border border-accent/10 flex items-center gap-4 md:hidden lg:flex">
+                    <div class="skeleton w-12 h-12 rounded-xl"></div>
+                    <div class="space-y-2 flex-1">
+                        <div class="skeleton h-4 w-3/4"></div>
+                        <div class="skeleton h-3 w-1/2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-16 md:py-32 border-t border-accent/10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div>
+                    <h2 class="text-4xl lg:text-5xl font-black mb-4 tracking-tight">Selected <span class="text-primary">Works</span></h2>
+                    <p class="text-lg opacity-60">A collection of my most challenging and impactful projects.</p>
+                </div>
+            </div>
+            
+            <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[150px] md:auto-rows-[200px]">
+                <!-- Skeletons for Portfolio -->
+                <div class="bg-card rounded-3xl overflow-hidden border border-accent/5 p-4">
+                    <div class="skeleton aspect-video mb-6"></div>
+                    <div class="skeleton h-8 w-3/4 mb-4"></div>
+                    <div class="skeleton h-4 w-full mb-2"></div>
+                    <div class="skeleton h-4 w-5/6 mb-8"></div>
+                    <div class="flex gap-2">
+                        <div class="skeleton h-6 w-16"></div>
+                        <div class="skeleton h-6 w-16"></div>
+                    </div>
+                </div>
+                <div class="bg-card rounded-3xl overflow-hidden border border-accent/5 p-4">
+                    <div class="skeleton aspect-video mb-6"></div>
+                    <div class="skeleton h-8 w-3/4 mb-4"></div>
+                    <div class="skeleton h-4 w-full mb-2"></div>
+                    <div class="skeleton h-4 w-5/6 mb-8"></div>
+                    <div class="flex gap-2">
+                        <div class="skeleton h-6 w-16"></div>
+                        <div class="skeleton h-6 w-16"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 border-t border-accent/10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-left">
+            <div class="md:w-1/3">
+                <h2 class="text-2xl font-black text-primary mb-2 uppercase tracking-tighter">Fire.<span class="text-accent">Hub</span></h2>
+                <p class="text-xs opacity-50 uppercase tracking-widest font-bold">Brand Storyteller</p>
+            </div>
+            
+            <div class="md:w-1/3 md:text-center">
+                <p class="text-sm opacity-40 font-mono">
+                    &copy; <span id="current-year"></span> <span id="footer-name"></span>.
+                </p>
+            </div>
+
+            <div id="socials-container" class="md:w-1/3 flex flex-wrap justify-center md:justify-end gap-6 font-bold opacity-80 text-sm">
+                <!-- Socials rendered from JS -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <button onclick="toggleContactModal()" class="fixed bottom-6 right-6 z-[90] w-14 h-14 bg-primary text-white rounded-full shadow-2xl shadow-primary/40 flex items-center justify-center text-2xl hover:scale-110 active:scale-95 transition-all md:bottom-10 md:right-10 animate-bounce" title="Contact Me">
+        💬
+    </button>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+        <div id="contact-modal-content" class="bg-card w-full max-w-md rounded-3xl overflow-hidden shadow-2xl border border-accent/10">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-2xl font-black text-primary">Get In Touch</h3>
+                    <button id="close-modal-btn" class="p-2 hover:bg-primary/10 rounded-full transition-colors text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+                
+                <div class="space-y-4">
+                    <!-- Email Option -->
+                    <a id="modal-email" href="#" class="flex items-center gap-4 p-5 rounded-2xl bg-primary/5 border border-primary/10 hover:border-primary/40 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center text-xl shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform">
+                            📧
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-widest opacity-40">Email Me</p>
+                            <p id="display-email" class="font-bold text-lg line-clamp-1"></p>
+                        </div>
+                    </a>
+
+                    <!-- WhatsApp Option -->
+                    <a id="modal-whatsapp" href="#" target="_blank" class="flex items-center gap-4 p-5 rounded-2xl bg-accent/5 border border-accent/10 hover:border-accent/40 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-accent text-white flex items-center justify-center text-xl shadow-lg shadow-accent/30 group-hover:scale-110 transition-transform">
+                            💬
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-widest opacity-40">WhatsApp</p>
+                            <p id="display-whatsapp" class="font-bold text-lg"></p>
+                        </div>
+                    </a>
+                </div>
+
+                <p class="mt-8 text-center text-sm opacity-40 font-medium">
+                    I typically respond within 24 hours.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+>
+</html>
