@@ -9,6 +9,7 @@ const PORTFOLIO_DATA = {
     `,
     email: "bellotolu99@gmail.com",
     whatsapp: "+234 906 934 7061",
+    cv_url: "cv.pdf",
     avatar: "T",
     image_url: "images/bio.jpeg",
   },
@@ -32,17 +33,20 @@ const PORTFOLIO_DATA = {
       details_url: "#",
       size: "standard",
     },
-    {
-      type: "tiktok",
-      tiktok_url:
-        "https://www.tiktok.com/@oluwafirepemi_tolulope/video/7629453283781922056",
-      title: "Creative Reel: Lifestyle & Storytelling",
-      description:
-        "A native-style TikTok production focusing on high-retention editing and visual hooks.",
-      tags: ["TikTok", "Viral", "Editing"],
-      details_url: "#",
-      size: "tall",
-    },
+
+    //  videos3
+    
+    // {
+    //   type: "tiktok",
+    //   tiktok_url:
+    //     "https://www.tiktok.com/@oluwafirepemi_tolulope/video/7629453283781922056",
+    //   title: "Creative Reel: Lifestyle & Storytelling",
+    //   description:
+    //     "A native-style TikTok production focusing on high-retention editing and visual hooks.",
+    //   tags: ["TikTok", "Viral", "Editing"],
+    //   details_url: "#",
+    //   size: "tall",
+    // },
   ],
   tools: [
     {
@@ -161,8 +165,8 @@ function renderBio() {
           ${bio.extended_bio}
       </div>
       <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start">
-          <a href="#portfolio" class="bg-primary text-white px-8 sm:px-10 py-3 sm:py-4 rounded-2xl font-bold shadow-lg shadow-primary/30 hover:scale-105 transition-transform text-base sm:text-lg text-center whitespace-nowrap">
-              Explore My Projects
+          <a href="${bio.cv_url}" target="_blank" rel="noopener noreferrer" class="bg-primary text-white px-8 sm:px-10 py-3 sm:py-4 rounded-2xl font-bold shadow-lg shadow-primary/30 hover:scale-105 transition-transform text-base sm:text-lg text-center whitespace-nowrap">
+              Download CV
           </a>
           <button onclick="toggleContactModal()" class="bg-card text-primary px-8 sm:px-10 py-3 sm:py-4 rounded-2xl font-bold border-2 border-primary hover:bg-primary/5 transition-all text-base sm:text-lg text-center shadow-sm whitespace-nowrap">
               Get In Touch
