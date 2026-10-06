@@ -9,7 +9,7 @@ const PORTFOLIO_DATA = {
     `,
     email: "bellotolu99@gmail.com",
     whatsapp: "+234 906 934 7061",
-    cv_url: "cv.pdf",
+    cv_url: "images/Bello_Tolulope_Oluwafirepemi_Social_Media_Scheduler_CV.pdf",
     avatar: "T",
     image_url: "images/bio.jpeg",
   },
@@ -36,17 +36,16 @@ const PORTFOLIO_DATA = {
 
     //  videos3
 
-    // {
-    //   type: "tiktok",
-    //   tiktok_url:
-    //     "https://www.tiktok.com/@oluwafirepemi_tolulope/video/7629453283781922056",
-    //   title: "Creative Reel: Lifestyle & Storytelling",
-    //   description:
-    //     "A native-style TikTok production focusing on high-retention editing and visual hooks.",
-    //   tags: ["TikTok", "Viral", "Editing"],
-    //   details_url: "#",
-    //   size: "tall",
-    // },
+    {
+      type: "editing",
+      editing_url: "images/IMG_8542.MOV",
+      title: "Creative Reel: Lifestyle & Storytelling",
+      description:
+        "A native-style TikTok production focusing on high-retention editing and visual hooks.",
+      tags: ["Editing"],
+      details_url: "#",
+      size: "standard",
+    },
   ],
   tools: [
     {
@@ -147,6 +146,20 @@ function toggleContactModal() {
   }
 }
 
+function downloadCV() {
+  const cvUrl = PORTFOLIO_DATA.bio.cv_url;
+  if (!cvUrl) return;
+
+  const link = document.createElement("a");
+  link.href = cvUrl;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.download = cvUrl.split("/").pop() || "cv.pdf";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+}
+
 function renderBio() {
   const bioContent = document.getElementById("bio-content");
   const bioAvatar = document.getElementById("bio-avatar");
@@ -165,9 +178,9 @@ function renderBio() {
           ${bio.extended_bio}
       </div>
       <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start">
-          <a href="${bio.cv_url}" target="_blank" rel="noopener noreferrer" download="cv.pdf" class="bg-primary text-white px-8 sm:px-10 py-3 sm:py-4 rounded-2xl font-bold shadow-lg shadow-primary/30 hover:scale-105 transition-transform text-base sm:text-lg text-center whitespace-nowrap">
+          <button type="button" onclick="downloadCV()" class="bg-primary text-white px-8 sm:px-10 py-3 sm:py-4 rounded-2xl font-bold shadow-lg shadow-primary/30 text-base sm:text-lg text-center whitespace-nowrap">
               Download CV
-          </a>
+          </button>
           <button onclick="toggleContactModal()" class="bg-card text-primary px-8 sm:px-10 py-3 sm:py-4 rounded-2xl font-bold border-2 border-primary hover:bg-primary/5 transition-all text-base sm:text-lg text-center shadow-sm whitespace-nowrap">
               Get In Touch
           </button>
@@ -208,7 +221,9 @@ function renderPortfolio() {
                           ? `<iframe class="absolute inset-0 w-full h-full" src="https://www.instagram.com/p/${item.instagram_id}/embed" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy"></iframe>`
                           : item.type === "tiktok"
                             ? `<iframe class="absolute inset-0 w-full h-full" src="https://www.tiktok.com/embed/v2/${item.tiktok_url.split("/").pop()}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>`
-                            : `<img src="${item.image_url}" alt="${item.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">`
+                            : item.type === "editing"
+                              ? `<video class="absolute inset-0 w-full h-full object-cover" src="${item.editing_url}" controls playsinline muted loop preload="metadata"></video>`
+                              : `<img src="${item.image_url}" alt="${item.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">`
                     }
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
                         <span class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform">View Details</span>
