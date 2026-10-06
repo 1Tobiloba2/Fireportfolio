@@ -222,7 +222,7 @@ function renderPortfolio() {
                           : item.type === "tiktok"
                             ? `<iframe class="absolute inset-0 w-full h-full" src="https://www.tiktok.com/embed/v2/${item.tiktok_url.split("/").pop()}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>`
                             : item.type === "editing"
-                              ? `<video class="absolute inset-0 w-full h-full object-cover block" src="${item.editing_url}" type="video/quicktime" controls playsinline muted loop preload="metadata" poster="images/bio.jpeg" style="display:block;width:100%;height:100%;object-fit:cover;"><source src="${item.editing_url}" type="video/quicktime" /></video>`
+                              ? `<video class="absolute inset-0 w-full h-full object-cover block" src="${item.editing_url}" type="video/quicktime" controls playsinline muted loop preload="metadata" style="display:block;width:100%;height:100%;object-fit:cover;"><source src="${item.editing_url}" type="video/quicktime" /></video>`
                               : `<img src="${item.image_url}" alt="${item.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">`
                     }
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
