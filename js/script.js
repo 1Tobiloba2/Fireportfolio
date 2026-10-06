@@ -35,7 +35,7 @@ const PORTFOLIO_DATA = {
     },
 
     //  videos3
-    
+
     // {
     //   type: "tiktok",
     //   tiktok_url:
@@ -165,7 +165,7 @@ function renderBio() {
           ${bio.extended_bio}
       </div>
       <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start">
-          <a href="${bio.cv_url}" target="_blank" rel="noopener noreferrer" class="bg-primary text-white px-8 sm:px-10 py-3 sm:py-4 rounded-2xl font-bold shadow-lg shadow-primary/30 hover:scale-105 transition-transform text-base sm:text-lg text-center whitespace-nowrap">
+          <a href="${bio.cv_url}" target="_blank" rel="noopener noreferrer" download="cv.pdf" class="bg-primary text-white px-8 sm:px-10 py-3 sm:py-4 rounded-2xl font-bold shadow-lg shadow-primary/30 hover:scale-105 transition-transform text-base sm:text-lg text-center whitespace-nowrap">
               Download CV
           </a>
           <button onclick="toggleContactModal()" class="bg-card text-primary px-8 sm:px-10 py-3 sm:py-4 rounded-2xl font-bold border-2 border-primary hover:bg-primary/5 transition-all text-base sm:text-lg text-center shadow-sm whitespace-nowrap">
