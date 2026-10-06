@@ -213,7 +213,7 @@ function renderPortfolio() {
       }
       return `
             <div class="group bg-card rounded-3xl overflow-hidden shadow-sm border border-accent/5 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 fade-in flex flex-col h-full ${spanClass}">
-                <div class="relative overflow-hidden bg-gray-100 flex-1">
+                <div class="relative overflow-hidden bg-transparent flex-1">
                     ${
                       item.type === "youtube"
                         ? `<iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/${item.youtube_id}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>`
